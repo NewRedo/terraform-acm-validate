@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  dev:
+    build:
+      context: .
+    command: sleep infinity
+    working_dir: /workspace
+    user: ${USER_NAME:-newredo}
+    volumes:
+      - source: ../
+        target: /workspace
+        type: bind
+      - source: ${HOME}${USERPROFILE}/.aws
+        target: /home/${USER_NAME:-newredo}/.aws
+        type: bind
+        consistency: cached

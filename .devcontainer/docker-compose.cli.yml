@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  dev:
+    build:
+      args:
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+        USER_NAME: ${USER_NAME:-newredo}
+    volumes:
+      - source: ${SSH_AUTH_SOCK}
+        target: /run/ssh-agent.sock
+        type: bind
+    environment:
+      SSH_AUTH_SOCK: /run/ssh-agent.sock

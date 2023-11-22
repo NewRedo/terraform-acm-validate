@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DIR=$(dirname $0)
+
+export USER_UID=$(id -u)
+export USER_GID=$(id -g)
+export USER_NAME=$(id -un)
+export COMPOSE_FILE=${DIR}/.devcontainer/docker-compose.yml:${DIR}/.devcontainer/docker-compose.cli.yml
+
+case $(uname) in
+  Darwin)
+    export SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
+esac
+
+function on_exit() {
+  echo "Stopping container..." >&2
+  docker compose down
+}
+
+trap on_exit EXIT
+
+docker compose up -d --build
+docker compose exec -it dev bash
