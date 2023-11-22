@@ -30,3 +30,4 @@ resource "aws_acm_certificate_validation" "example" {
   validation_record_fqdns = module.validation.validation_record_fqdns
 }
 ```
+
