@@ -19,3 +19,14 @@ module "aws_route53" {
   }])
   dns_zone_name = "example.com"
 }
+
+module "cloudflare_dns" {
+  source = "./cloudflare-dns"
+  domain_validation_options = toset([{
+    domain_name           = "example.com"
+    resource_record_name  = "_acme-challenge.example.com"
+    resource_record_type  = "TXT"
+    resource_record_value = "example"
+  }])
+  dns_zone_name = "example.com"
+}
