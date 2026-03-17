@@ -12,6 +12,7 @@ Refer to each module's README for more information.
 
 * [AWS Route53](aws-route53/README.md)
 * [Google Cloud DNS](google-cloud-dns/README.md)
+* [Cloudflare DNS](cloudflare-dns/README.md)
 
 ## Usage
 

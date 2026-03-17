@@ -1,13 +1,13 @@
-# Terraform ACM Certificate Validate Route53
+# Terraform ACM Certificate Validate Cloudflare
 
-This module creates the DNS records required to validate an ACM certificate using Amazon Route53.
+This module creates the DNS records required to validate an ACM certificate using Cloudflare DNS.
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | -------- |
 | `domain_validation_options` | The domain validation options for the certificate | `set(`[`domain validation options`](#domain-validation-options)`)` |  | yes |
-| `dns_zone_name` | The Route53 Hosted Zone name to create the validation records in | `string` |  | yes |
+| `dns_zone_name` | The Cloudflare DNS zone name to create the validation records in | `string` |  | yes |
 
 ### Domain Validation Options
 
